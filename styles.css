@@ -1,0 +1,41 @@
+:root {
+    --grid-rows: 1;
+    --grid-cols: 1;
+    --cell-default-width: 16px;
+    --cell-default-height: 16px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #3d3d3d;
+    color: white;
+}
+
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+}
+
+.grid-container {
+    display: grid;
+    border: 1px solid white;
+    grid-gap: none;
+    grid-template-columns: repeat(var(--grid-cols), 0fr);
+    grid-template-rows: repeat(var(--grid-rows), 0fr);
+    justify-content: center;
+    align-items: center;
+}
+
+.cell {
+    border: 1px solid white;
+    padding: 1px;
+    height: var(--cell-default-height);
+    width: var(--cell-default-width);
+    
+}
