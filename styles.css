@@ -1,9 +1,14 @@
 :root {
+    /*Default values*/
     --grid-rows: 1;
     --grid-cols: 1;
     --cell-width: 16px;
     --cell-height: 16px;
-    --adjust-value: 16;
+    --adjust-value: 16; /* This value is meant to adjust the grid for smaller screens. Used in @media query */
+
+    --bg-color: #313c5d;
+    --grid-bg-color: #306ed8;
+    --button-color: #d75788;
 }
 
 * {
@@ -12,8 +17,9 @@
 }
 
 body {
-    background-color: #3d3d3d;
+    background-color: var(--bg-color);
     color: white;
+
 }
 
 .heading {
@@ -24,8 +30,12 @@ body {
 }
 
 .grid-container {
+    background-color: var(--grid-bg-color);
+    border: 2px solid #306eAF;
+    padding: 2em;
+    border-radius: 5%;
+    margin: 5em;
     display: grid;
-    /* border: 1px solid white; */
     grid-gap: none;
     grid-template-columns: repeat(var(--grid-cols), 0fr);
     grid-template-rows: repeat(var(--grid-rows), 0fr);
@@ -38,13 +48,30 @@ body {
     padding: 1px;
     height: var(--cell-height);
     width: var(--cell-width);
-    
-    
+}
+
+.controller {
+    display: flex;
+    margin: 2rem;
+    padding: 1em;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+button {
+    background-color: var(--button-color);
+    border-radius: 12%;
+    padding: 1rem;
+    margin: .5em;
+    white-space: nowrap;
 }
 
 @media (max-width: 700px) {
     .grid-container {
         grid-template-columns: repeat(calc(var(--grid-cols) - var(--adjust-value)), 0fr);
         grid-template-rows: repeat(calc(var(--grid-rows) - var(--adjust-value)), 0fr);
+    }
+    .controller {
+        flex-direction: column;
     }
 }
