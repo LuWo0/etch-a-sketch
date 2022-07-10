@@ -1,8 +1,9 @@
 :root {
     --grid-rows: 1;
     --grid-cols: 1;
-    --cell-default-width: 16px;
-    --cell-default-height: 16px;
+    --cell-width: 16px;
+    --cell-height: 16px;
+    --adjust-value: 16;
 }
 
 * {
@@ -24,7 +25,7 @@ body {
 
 .grid-container {
     display: grid;
-    border: 1px solid white;
+    /* border: 1px solid white; */
     grid-gap: none;
     grid-template-columns: repeat(var(--grid-cols), 0fr);
     grid-template-rows: repeat(var(--grid-rows), 0fr);
@@ -35,7 +36,15 @@ body {
 .cell {
     border: 1px solid white;
     padding: 1px;
-    height: var(--cell-default-height);
-    width: var(--cell-default-width);
+    height: var(--cell-height);
+    width: var(--cell-width);
     
+    
+}
+
+@media (max-width: 700px) {
+    .grid-container {
+        grid-template-columns: repeat(calc(var(--grid-cols) - var(--adjust-value)), 0fr);
+        grid-template-rows: repeat(calc(var(--grid-rows) - var(--adjust-value)), 0fr);
+    }
 }
