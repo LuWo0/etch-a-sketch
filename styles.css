@@ -126,5 +126,10 @@ button:hover, button:focus{
     }
     .controller {
         flex-direction: column;
+        flex-shrink: none;
+        
+    }
+    .board {
+        flex-direction: column;
     }
 }
