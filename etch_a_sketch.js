@@ -5,23 +5,27 @@ const screenScalar = document.querySelector(":root");
 
 function createGrid(rows, cols, width, height){
     removeAllChildNodes(gridContainer);
+
     gridContainer.style.setProperty("--grid-rows", rows);
     gridContainer.style.setProperty("--grid-cols", cols);
     gridContainer.style.setProperty("--cell-width", width);
     gridContainer.style.setProperty("--cell-height", height);
     
-    let isBlack = true;
-    let isGrey = false;
-    let isRandom = false;
+    const black = document.querySelector(".black");
+    const grey = document.querySelector(".grey-scale");
+    const random = document.querySelector(".random");
+    const eraser = document.querySelector(".eraser");
+    const colorPicker = document.querySelector(".color-btn");
+    const clear = document.querySelector(".clear");
 
     for (let i = 0; i < (rows * cols); i++){ // creates a square grid with equal cells
         const cell = document.createElement("div");
         cell.classList.add("cell");
         gridContainer.appendChild(cell);
-        const black = document.querySelector(".black");
-        const grey = document.querySelector(".grey-scale");
-        const random = document.querySelector(".random");
+
+
         let randomColor = getRandomColor();
+        
         
         black.addEventListener("click", () => {
             fillCell(cell, "black");
@@ -35,11 +39,26 @@ function createGrid(rows, cols, width, height){
             fillCell(cell, randomColor);
         }) 
 
-        if (isBlack === true) fillCell(cell, "black");
-        else if (isGrey === true) fillCell(cell, "grey");
-        else if (isRandom === true) fillCell(cell, randomColor)
-        else {fillCell(cell, "red");}
-        // fillCell(cell, "black");
+        eraser.addEventListener("click", () => {
+            fillCell(cell, getComputedStyle(gridContainer).getPropertyValue("--cell-bg-color"));
+        });
+
+        colorPicker.addEventListener("click", () => {
+            const colorSelector = document.querySelector(".color-picker");
+            colorSelector.style.setProperty("display", "flex");
+            let color;
+            colorSelector.addEventListener("change", e => {
+                color = e.target.value;
+                fillCell(cell, color);
+                colorSelector.style.setProperty("display", "none");
+            });
+        })
+
+        clear.addEventListener("click", () => {
+            const color = getComputedStyle(gridContainer).getPropertyValue("--cell-bg-color");
+            cell.style.setProperty("background-color", color);
+
+        });
         
     }
 }

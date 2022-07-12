@@ -106,6 +106,19 @@ button:hover, button:focus{
     background-color: rgb(241, 7, 97);
 }
 
+
+
+.color-container {
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.color-picker {
+    display: none;
+}
+
 @media (max-width: 805px) {
     .grid-container {
         grid-template-columns: repeat(calc(var(--grid-cols) - var(--adjust-value)), 0fr);
