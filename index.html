@@ -9,25 +9,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700&family=Cedarville+Cursive&family=Montserrat:wght@100&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@700&family=Montserrat:wght@100&family=Poppins:wght@400;900&display=swap" rel="stylesheet">
     <script src="etch_a_sketch.js" defer></script>
 </head>
 <body>
     <h1 class="heading">Etch-A-Sketch</h1>
 
-    <div class="grid-container">
-        
-    </div>
-
-    <div class="controller">
-        <h2>Grid Size: </h2>
-        <button class="small-grid">Small</button>
-        <button class="medium-grid">Medium</button>
-        <button class="large-grid">Large</button>
-        
-        <h2>Mode: </h2>
-        <button>Black</button>
-        <button>Grey-Scale</button>
-        <button>Random</button>
+    <div class="board">
+        <div class="controller">
+            <div class="size">
+                <h2>Grid Size</h2>
+                <button class="small-grid">Small</button>
+                <button class="medium-grid">Medium</button>
+                <button class="large-grid">Large</button>
+            </div>
+            <div class="mode">
+                <h2>Mode</h2>
+                <button class="black">Black</button>
+                <button class="grey-scale">Grey-Scale</button>
+                <button class="random">Random</button>
+            </div>
+            <div class="misc">
+                <h2>Misc.</h2>
+                <button>Eraser</button>
+                <button>Color Select</button>
+                <button>Clear</button>
+            </div>
+        </div>
+        <div class="grid-container">
+            <!-- Gris cells will be created here from the JS file-->
+        </div>
     </div>
 
 </body>
