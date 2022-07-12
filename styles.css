@@ -106,8 +106,6 @@ button:hover, button:focus{
     background-color: rgb(241, 7, 97);
 }
 
-
-
 .color-container {
     display: flex;
     gap: 8px;
@@ -117,6 +115,18 @@ button:hover, button:focus{
 
 .color-picker {
     display: none;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    bottom: 0;
+}
+a {
+    text-decoration: none;
+    color: var(--text-color);
 }
 
 @media (max-width: 805px) {
